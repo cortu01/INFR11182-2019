@@ -1,0 +1,745 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                       Assignment 2                   %
+%                                                      %
+% Author: Michael P. J. Camilleri					   %
+%                                                      %
+% Based on the Cleese Assignment Template for Students %
+% from http://www.LaTeXTemplates.com.				   %
+%                                                      %
+% Original Author: Vel (vel@LaTeXTemplates.com)		   %
+%													   %
+% License:											   %
+% CC BY-NC-SA 3.0 									   %
+% (http://creativecommons.org/licenses/by-nc-sa/3.0/)  %
+% 													   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%--------------------------------------------------------
+%   IMPORTANT: Do not touch anything in this part
+\documentclass[12pt]{article}
+\input{style.tex}
+
+
+
+% Options for Formatting Output
+
+\global\setbool{clearon}{true} %
+\global\setbool{authoron}{true} %
+
+
+
+\newcommand{\assignmentQuestionName}{Question}
+\newcommand{\assignmentTitle}{Assignment\ \#2}
+
+\newcommand{\assignmentClass}{IAML -- INFR11182 (LEVEL 11)}
+
+\newcommand{\assignmentWarning}{NO LATE SUBMISSIONS} % 
+\newcommand{\assignmentDueDate}{Friday,\ November\ 15,\ 2019 @ 16:00}
+%--------------------------------------------------------
+
+%--------------------------------------------------------
+%   IMPORTANT: Specify your Student ID below [You will need to uncomment the line, else compilation will fail]. Make sure to specify your student ID correctly, otherwise we may not be able to identify your work and you will be marked as missing.
+%\newcommand{\assignmentAuthorName}{s1234567}
+%--------------------------------------------------------
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%============================================================================%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\assignmentSection{Part A: 20-NewsGroups [75 Points]}
+
+
+
+
+\begin{question}{(10 points) Exploratory Analysis}
+
+\questiontext{We will begin by exploring the Dataset to get some insight about it.}
+
+
+
+\begin{subquestion}{(5 points) Focusing first on the training set, summarise the key features/observations in the data: focus on the dimensionality, data ranges, feature and class distribution and report anything out of the ordinary. What are the typical values of the features like?}
+
+
+\answerbox{12em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+\begin{subquestion}{(3 points) Looking now at the Testing set, how does it compare with the Training Set (in terms of sizes and feature-distributions) and what could be the repurcussions of this?}
+
+
+\answerbox{10em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(2 points) Why do you think it is useful to consider TF-IDF weights as opposed to just the frequency of times a word appears in a document as a feature?}
+
+
+
+\answerbox{10em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+
+\end{question}
+
+
+%============================================================================%
+
+\begin{question}{\label{Q_UNSUP_LEARN}(24 points) Unsupervised Learning}
+
+\questiontext{We will now explore the documents in some detail by way of clustering.}
+
+
+
+\begin{subquestion}{(2 points) The K-Means algorithm is non-deterministic. Explain why this is, and how the final model is selected in the SKLearn implementation of \href{https://scikit-learn.org/stable/modules/clustering.html}{KMeans}.}
+
+
+
+\answerbox{9em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+\begin{subquestion}{(1 point) One of the parameters we need to specify when using k-means is the number of clusters. What is a reasonable number for this problem and why?}
+
+
+
+\answerbox{5em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+\begin{subquestion}{(5 points) We will use the Adjusted Mutual Information (AMI) \ie \href{https://scikit-learn.org/stable/modules/clustering.html\#mutual-info-score}{\texttt{adjusted\_mutual\\\_info\_score}} between the clusters and the true (known) labels to quantify the performance of the clustering. Give an expression for the MI in terms of entropy. In short, describe what the MI measures about two variables, why this is applicable here and why it might be difficult to use in practice. \hint{MI is sometimes referred to as Information Gain: note that you are asked about the standard way we defined MI and not the AMI which is adjusted for the size of the domain and for chance agreement (you don't need to explain how the latter works).}}
+
+
+
+\answerbox{14em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(4 points) Fit K-Means objects with \texttt{n\_clusters} ranging from 2 to 12. Set the random seed to 1000 and the number of initialisations to 50, but leave all other values at default. For each fit compute the adjusted mutual information (there is an SKLearn \href{https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_mutual_info_score.html}{function} for that). Set \texttt{average\_method=`max'}. Plot the AMI scores against the number of clusters (as a line plot).}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(3 points) Discuss any trends and interesting aspects which emerge from the plot. Does this follow from your expectations?}
+
+
+
+\answerbox{10em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{\label{Q_CLUSTER_FOUR}(6 points) Let us investigate the case with four (4) clusters in some more detail. Using seaborn's \href{https://seaborn.pydata.org/generated/seaborn.countplot.html}{\texttt{countplot}} function, plot a bar-chart of the number of data-points with a particular class (encoded by colour) assigned to each cluster centre (encoded by position on the plot's x-axis). As part of the cluster labels, include the total number of data-points assigned to that cluster.}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(3 points) How does the clustering in Question\ref{Q_UNSUP_LEARN}:\ref{Q_CLUSTER_FOUR} align with the true class labels? Does it conform to your observations in Q 2(e)?}
+
+
+
+\answerbox{14em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+
+\end{question}
+
+%============================================================================%
+
+\begin{question}{(26 points) Logistic Regression Classification}
+\label{Q_LR_NG}
+\questiontext{We will now try out supervised classification on this data. We will focus on Logistic Regression and measure performance in terms of the \href{https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html}{F1} score (familiarise yourself with this score which is related to the precision and recall scores that we learnt about in class).}
+
+
+
+\begin{subquestion}{(3 points) What is the F1-score, and why is it preferable to accuracy in our problem? How does the macro-average work to extend the score to multi-class classification?}
+
+
+
+\answerbox{8em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+\begin{subquestion}{(2 points) As always we start with a simple baseline classifier. Define such a classifier (indicating why you chose it) and report its performance on the \textbf{Test} set. Use the `macro' average for the \texttt{f1\_score}.} %\hint{For the baseline, the classifier should use only the target labels.}
+
+
+
+\answerbox{8em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(3 points) We will now train a \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html}{LogisticRegression} Classifier from SKLearn. By referring to the documentation, explain how the Logistic Regression model can be applied to classify multi-class labels as in our case. \hint{Limit your explanation to methods we discussed in the lectures.}}
+
+
+
+\answerbox{9em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(4 points) Train a Logistic Regressor on the training data. Set \texttt{solver=`lbfgs'}, \texttt{multi\_class=`multinomial'} and \texttt{random\_state=0}. Use the Cross-Validation object you created and report the average validation-set F1-score as well as the standard deviation. Comment on the result.}
+
+
+
+\answerbox{9em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{\label{Q_LOG_REG_PLT}(5 points) We will now optimise the Regularisation parameter $C$ using cross-validation. Train a logistic regressor for different values of $C$: in each case, evaluate the F1 score on the training and validation portion of the fold. That is, for each value of $C$ you must provide the training set and validation-set scores per fold and then compute (and store) the average of both over all folds. Finally plot the (average) training and validation-set scores as a function of $C$. \hint{Use a logarithmic scale for $C$, spanning 19 samples between $10^{-4}$ to $10^5$.}}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(7 points) Which is the optimal value of $C$ (and the corresponding score). How did you get this value? By making reference to the effect of the regularisation parameter $C$ on the optimisation, explain what is happening in your plot from Question \ref{Q_LR_NG}:\ref{Q_LOG_REG_PLT} \hint{Refer to the documentation for $C$ in the \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html}{LogisticRegression} page on SKLearn}.}
+
+
+
+\answerbox{11em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(2 points) Finally, report the score of the best model on the test-set, after retraining on the entire training set (that is drop the folds). \hint{You may need to set \texttt{max\_iter = 200}.} Comment on the result.}
+
+
+
+\answerbox{7em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+\end{question}
+
+
+
+
+%============================================================================%
+
+
+
+\begin{question}{(15 points) Hierarchical Classification}
+
+\questiontext{We will now leverage the structure of the target labels to try out hierarchical classification.}
+
+
+
+\begin{subquestion}{(2 Marks) What aspects of the data may lend to better classification in such a hierarchical fashion?}
+
+
+
+\answerbox{10em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(3 points) First train a Logistic Regressor on the high-level classes (\ie the four super-labels): use the same setup as before (Question \ref{Q_LR_NG}), optimising the regularisation parameter $C$ over the folds. Report the best validation-set F1-score (average over folds) together with the optimal value of $C$. Can we compare this result to the previous ones? \hint{Remember to keep track of the \textbf{best} classifier trained on the \textbf{entire} dataset (\ie training data with no folds).}}
+
+
+
+\answerbox{8em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(2 points) We will now train individual binary classifiers for each of the groups. Why should we use the true super-class targets and not the ones predicted from the above classifier?}
+
+
+
+\answerbox{8em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(5 points) Train four independent Logistic Regression (binary) classifiers on the two classes within each super-group. That is, for each super-group, extract only the samples corresponding to that super-group using the true group label, then optimise a Logistic Regression classifier on the data with the targets being the two classes in that super-group. Report in each case the regularisation value which gives the best validation-set score as well as the associated F1-score. \hint{This would look best in a table. Also, remember to keep track of the best classifier trained on the entire group in each case.}}
+
+
+
+\answerbox{9em}{
+Your Table Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(3 points) Using the trained classifiers in a hierarchical fashion, evaluate the model on the testing set. \hint{You will need to first generate the group-level predictions using the base classifier, and then, conditioned on this, predict the individual labels. Make sure to construct the indices correctly}. How does this compare to the original single-layer classifier?}
+
+
+
+\answerbox{12em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\end{question}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%============================================================================%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+\assignmentSection{Part B: Bristol Air-Quality [98 points]}
+
+
+
+
+\begin{question}{\label{Q_EXPLORATORY}(30 Points) Exploratory Analysis}
+
+\questiontext{We will begin by exploring the Dataset to familiarise ourselves with it.}
+
+
+
+\begin{subquestion}{(6 points) Summarise the key features/observations in the data: describe the purpose of each column and report (briefly) also on the dimensionality/ranges (ballpark figures only, and how they compare across features) and number of sites, and identify anything out of the ordinary/problematic: \ie look out for missing data and negative values. Why are the latter unreasonable in such a dataset? \hint{Refer to the documentation for how to interpret the pollutant values.}}
+
+
+
+\answerbox{13em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(6 points) Repeat the same analysis but this time on a per-site basis. Provide a table with the number of samples and percentage of problematic samples (negative and missing) in each site: \ie for each issue, count the number of samples having that issue in at least one of the columns. \hint{Pandas has a handy method, \texttt{to\_latex()}, for generating a latex table from a dataframe.}}
+
+
+
+\answerbox{17em}{
+Your Table Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(4 points) Briefly summarise how the sites compare in terms of number of samples and amount of problematic samples.}
+
+
+
+\answerbox{11em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(3 points) Given that the columns are all oxides of nitrogen and hence we expect them to be related, we will now look at correlations in our data. This will also be useful in determining how well we can predict any one of the readings from the other two. Remove the data from sites 3 and 15 and compute the \textbf{Pearson} correlation coefficient between each of the three pollutant columns on the remaining data. Visualise the coefficients between each pair of columns in a table.}
+
+
+
+\answerbox{8em}{
+Your Table Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(2 points) Comment on the level of correlation between each pair of pollutants.}
+
+
+
+\answerbox{6em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+
+\begin{subquestion}{\label{CORRELATIONS}(5 points) For each of the three pollutants, compute the Pearson correlation between sites. \hint{You will need to remove the `Date Time' column and then group by the first level of the columns.} Then plot these as three heatmaps: show the values within the figures. \hint{Use the method \texttt{plot\_matrix()} from \texttt{mpctools.extensions.mplext}.}}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(4 points) Comment briefly on your observations from Question \ref{Q_EXPLORATORY}:\ref{CORRELATIONS}: start by summarising the results from the NO gas and then comment on whether the same is observed in the other gases or if there is something different.}
+
+
+
+\answerbox{10em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\end{question}
+
+
+%============================================================================%
+
+\begin{question}{(18 Points) Principal Component Analysis}
+
+\questiontext{One aspect which we have not yet explored is the temporal nature of the data. That is, we need to keep in mind that the readings have a temporal aspect to them which can provide some interesting insight. We will explore this next.}
+
+
+
+\begin{subquestion}{(2 points) Plot the first 5 lines of data (plot each row as a single line-plot).}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+
+
+\begin{subquestion}{(5 points) We will focus first on data solely from Site 1. Extract the data from this site, and run PCA with the number of components set to 72 for now. Set the \texttt{random\_state=0}. On a single plot plot: (i) the percentage of the variance explained by each principal component (as a bar-chart), (ii) the cumulative variance (line-plot) explained by the first $n$ components: (\hint{you should use \href{https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.axes.Axes.twinx.html}{\texttt{twinx()}} to make the plot fit}), \textsl{and}, (iii) mark the point (number of components) which collectively explain at least 95\% of the variance. \hint{Number components starting from 1.}}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(2 points) Interpret and summarise the above plot.}
+
+
+
+\answerbox{8em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+\begin{subquestion}{(4 points) Generate two figures, one for each of the first 2 principal components: in each, plot the component as three lines, one for each pollutant throught one day cycle. \hint{You will need to reshape the components with an `F' ordering.}}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(5 points) By focusing mostly on the first principal component, are there any significant patterns which emerge throughout the day? \hint{Think about car usage throughout the day.} Also, are there any significant differences between the signals and why could this be happening? \hint{You can refer to one of the limitations of PCA.}}
+
+
+
+\answerbox{12em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\end{question}
+
+%============================================================================%
+
+
+\begin{question}{\label{Q_LR_BA}(49 points) Regression}
+
+
+\questiontext{Given our understanding of the correlation between signals and sites, we will now attempt to predict the NOx level for Site 17 given the value at the other sites. We will evaluate our models using the Root Mean Squared Error (RMSE) \ie the square root of the \href{https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html}{mean\_squared\_error} score by sklearn.}
+
+
+
+\begin{subquestion}{(2 points) First things first: since we are dealing with a supervised task, we will need to split our data into a training and testing set. Furthermore, since our regressors will involve hyper-parameter tuning, we will also need a validation set. Use the \texttt{multi\_way\_split()} method from \texttt{mpctools.extensions.skext} to split the data into a Training (60\%), Validation (15\%) and Testing (25\%) set: use the \href{https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.ShuffleSplit.html}{ShuffleSplit} object from sklearn for the \texttt{splitter}. Set the random state to 0. \hint{The method gives you the indices of the split for each set, which can then be applied to multiple matrices.} Report the sizes of each dataset.}
+
+
+
+\answerbox{4em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(4 points) Let us start with a baseline. By using only the $y$-values, what baseline regressor can you define (indicate what it does)? Implement it and report the RMSE on the training and validation sets. Interpret this relative to the statistics of the data.}
+
+
+
+\answerbox{8em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(3 points) Let us now try a more interesting algorithm: specifically, we will start with \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html}{LinearRegression}. Train the regressor on the training data and report the RMSE on the training and validation set, and comment on the relative performance to the baseline.}
+
+
+
+\answerbox{6em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+
+\begin{subquestion}{\label{SQ_LR_RESID}(2 points) Another way of evaluating the applicability of a linear model is to analsye the residuals (errors). The Linear Regression model assumes a gaussian form for the residuals. Fit a gaussian to the errors and report the mean and standard deviation.}
+
+
+
+\answerbox{4em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{\label{SQ_LR_RESID_PLT}(4 points) Fit a gaussian to the residuals and then plot a \href{https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html}{histogram} of both the residuals and the fitted gaussian. The easiest way to do this is to generate a large number of samples ($\approx10\times$ the amount of samples in the data) from the distribution (\hint{refer to \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html}{norm.rvs} from \texttt{scipy.stats}}), and feed them to the hist method with the residuals: \ie calling \texttt{plt.hist(x=[residuals, samples])}. Use 50 bins in the range [-250, 250] and visualise a density plot rather than raw counts.}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(2 points) By referring to the plot in Question \ref{Q_LR_BA}:\ref{SQ_LR_RESID_PLT}, comment on whether your assumption in Q \ref{SQ_LR_RESID} is valid.}
+
+
+
+\answerbox{5em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+
+
+\begin{subquestion}{(5 points) We want to explore further what the model is learning. Explain why in Linear Regression, we cannot just blindly use the weights of the regression coefficients to evaluate the relative importance of each feature, but rather we have to normalise the features. By referring to the documentation for the \href{http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html}{LinearRegression} implementation in SKLearn, explain what the normalisation does and how it helps in comparing features. Will this affect the performance of the LR?}
+
+
+
+\answerbox{8em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(5 points) Retrain the regressor, setting \texttt{normalize=True} and report (in a table) the ratio of the relative importance of each feature. Which is the most/least important site? How do they compare with the correlation coefficients for Site 17 as computed in Question \ref{Q_EXPLORATORY}:\ref{CORRELATIONS}, and why do you think that is?}
+
+
+
+\answerbox{14em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(5 points) It might be that with non-linear models, we may get better performance. Let us try to use \href{https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html}{K-Nearest-Neighbours}. Train a KNN regressor with default parameters on the training set and report performance on the training and validation set. \hint{it might be beneficial to set \texttt{n\_jobs=-1} to improve performance.} How does it compare with the LR in terms of performance on both sets? What is a limitation of the KNN algorithm for our dataset?}
+
+
+
+\answerbox{7em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(4 points) The KNN regression allows setting a number of hyper-parameters. We will optimise only one: the number of neighbours to use. By using the validation set, find the optimal value for the \texttt{n\_neighbours} parameter out of the values [2, 4, 8, 16, 32]. Plot the training/validation RMSE and indicate (for example through a line) the best value for \texttt{n\_neighbours}.}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(1 points) What is the best-case RMSE performance on the validation set?}
+
+
+
+\answerbox{4em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(4 points) Let us try one last regression algorithm: we will now use \href{https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html}{DecisionTreeRegressor}. Again, the algorithm contains a number of hyper-parameters, and we will optimise the depth of the tree. Train a series of Decision Tree Regressors, optimising (over the validation set) the \texttt{max\_depth} over the values [2, 4, 8, 16, 32, 64]. Set \texttt{random\_state=0}. Plot the training/validation RMSE and indicate (as before) the best value for \texttt{max\_depth}.}
+
+
+
+\answerbox{40em}{
+Your Image Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(3 points) What is the best-case RMSE performance on the validation set? What do you notice from the plot about the performance of the Decision Tree Regressor?}
+
+
+
+\answerbox{6em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\begin{subquestion}{(5 points) To conclude let us now compare all the models on the testing set. Combine the training and validation sets (remember to use the version with the one-hot encoding) and retrain the model from each family on it: in cases where we optimised hyper-parameters, set this to the best-case value. Report the testing-set performance of each model in a table \hint{You should have 4 values}.}
+
+
+
+\answerbox{6em}{
+Your Answer Here
+}
+
+
+
+\end{subquestion}
+
+\end{question}
+
+%============================================================================
+
+
+\end{document}
