@@ -138,7 +138,7 @@ Your Answer Here
 \end{subquestion}
 
 
-\begin{subquestion}{(5 points) We will use the Adjusted Mutual Information (AMI) \ie \href{https://scikit-learn.org/stable/modules/clustering.html\#mutual-info-score}{\texttt{adjusted\_mutual\\\_info\_score}} between the clusters and the true (known) labels to quantify the performance of the clustering. Give an expression for the MI in terms of entropy. In short, describe what the MI measures about two variables, why this is applicable here and why it might be difficult to use in practice. \hint{MI is sometimes referred to as Information Gain: note that you are asked about the standard way we defined MI and not the AMI which is adjusted for the size of the domain and for chance agreement (you don't need to explain how the latter works).}}
+\begin{subquestion}{(5 points) We will use the Adjusted Mutual Information (AMI) \ie \href{https://scikit-learn.org/stable/modules/clustering.html\#mutual-info-score}{\texttt{adjusted\_mutual\\\_info\_score}} between the clusters and the true (known) labels to quantify the performance of the clustering. Give an expression for the MI in terms of entropy. In short, describe what the MI measures about two variables, why this is applicable here and why it might be difficult to use in practice. \hint{MI is sometimes referred to as Information Gain: note that you are asked only about the standard way we defined MI and not the AMI which is adjusted for the size of the domain and for chance agreement.}}
 
 
 
@@ -271,7 +271,7 @@ Your Image Here
 
 \end{subquestion}
 
-\begin{subquestion}{(7 points) Which is the optimal value of $C$ (and the corresponding score). How did you get this value? By making reference to the effect of the regularisation parameter $C$ on the optimisation, explain what is happening in your plot from Question \ref{Q_LR_NG}:\ref{Q_LOG_REG_PLT} \hint{Refer to the documentation for $C$ in the \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html}{LogisticRegression} page on SKLearn}.}
+\begin{subquestion}{(7 points) What is the optimal value of $C$ (and the corresponding score). How did you get this value? By making reference to the effect of the regularisation parameter $C$ on the optimisation, explain what is happening in your plot from Question \ref{Q_LR_NG}:\ref{Q_LOG_REG_PLT} \hint{Refer to the documentation for $C$ in the \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html}{LogisticRegression} page on SKLearn}.}
 
 
 
@@ -359,7 +359,7 @@ Your Table Here
 
 \end{subquestion}
 
-\begin{subquestion}{(3 points) Using the trained classifiers in a hierarchical fashion, evaluate the model on the testing set. \hint{You will need to first generate the group-level predictions using the base classifier, and then, conditioned on this, predict the individual labels. Make sure to construct the indices correctly}. How does this compare to the original single-layer classifier?}
+\begin{subquestion}{(3 points) Using the trained classifiers in a hierarchical fashion, evaluate the resulting model on the testing set for the full 8-way classification. \hint{You will need to first generate the group-level predictions using the base classifier, and then, conditioned on this, predict the individual labels. Make sure to construct the indices correctly}. How does this compare to the original single-layer classifier?}
 
 
 
@@ -382,7 +382,7 @@ Your Answer Here
 
 \clearpage
 
-\assignmentSection{Part B: Bristol Air-Quality [98 points]}
+\assignmentSection{Part B: Bristol Air-Quality [99 points]}
 
 
 
@@ -405,7 +405,7 @@ Your Answer Here
 
 \end{subquestion}
 
-\begin{subquestion}{(6 points) Repeat the same analysis but this time on a per-site basis. Provide a table with the number of samples and percentage of problematic samples (negative and missing) in each site: \ie for each issue, count the number of samples having that issue in at least one of the columns. \hint{Pandas has a handy method, \texttt{to\_latex()}, for generating a latex table from a dataframe.}}
+\begin{subquestion}{(6 points) Repeat the same analysis but this time on a per-site basis. Provide a table with the number of samples and percentage of problematic samples (negative and missing) in each site. To report numbers, a row which has at least one column `wrong' counts as 1. \hint{Pandas has a handy method, \texttt{to\_latex()}, for generating a latex table from a dataframe.}}
 
 
 
@@ -484,7 +484,7 @@ Your Answer Here
 
 %============================================================================%
 
-\begin{question}{(18 Points) Principal Component Analysis}
+\begin{question}{(19 Points) Principal Component Analysis}
 
 \questiontext{One aspect which we have not yet explored is the temporal nature of the data. That is, we need to keep in mind that the readings have a temporal aspect to them which can provide some interesting insight. We will explore this next.}
 
@@ -529,7 +529,7 @@ Your Answer Here
 \end{subquestion}
 
 
-\begin{subquestion}{(4 points) Generate two figures, one for each of the first 2 principal components: in each, plot the component as three lines, one for each pollutant throught one day cycle. \hint{You will need to reshape the components with an `F' ordering.}}
+\begin{subquestion}{(5 points) Generate three figures, one for the mean and one for each of the first 2 principal components: in each, plot the mean/component as three lines, one for each pollutant throught one day cycle. \hint{You will need to reshape the components with an `F' ordering.}}
 
 
 
@@ -541,7 +541,7 @@ Your Image Here
 
 \end{subquestion}
 
-\begin{subquestion}{(5 points) By focusing mostly on the first principal component, are there any significant patterns which emerge throughout the day? \hint{Think about car usage throughout the day.} Also, are there any significant differences between the signals and why could this be happening? \hint{You can refer to one of the limitations of PCA.}}
+\begin{subquestion}{(5 points) By focusing mostly on the first principal component, are there any significant patterns which emerge throughout the day? \hint{Think about car usage throughout the day.} Also, are there any significant differences between the pollutants and why could this be happening? \hint{You can refer to one of the limitations of PCA.}}
 
 
 
@@ -603,7 +603,7 @@ Your Answer Here
 
 
 
-\begin{subquestion}{\label{SQ_LR_RESID}(2 points) Another way of evaluating the applicability of a linear model is to analsye the residuals (errors). The Linear Regression model assumes a gaussian form for the residuals. Fit a gaussian to the errors and report the mean and standard deviation.}
+\begin{subquestion}{\label{SQ_LR_RESID}(2 points) Another way of evaluating the applicability of a linear model is to analsye the residuals (errors). The Linear Regression model assumes a Gaussian form for the residuals. Fit a Gaussian to the errors and report the mean and standard deviation.}
 
 
 
@@ -615,7 +615,7 @@ Your Answer Here
 
 \end{subquestion}
 
-\begin{subquestion}{\label{SQ_LR_RESID_PLT}(4 points) Fit a gaussian to the residuals and then plot a \href{https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html}{histogram} of both the residuals and the fitted gaussian. The easiest way to do this is to generate a large number of samples ($\approx10\times$ the amount of samples in the data) from the distribution (\hint{refer to \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html}{norm.rvs} from \texttt{scipy.stats}}), and feed them to the hist method with the residuals: \ie calling \texttt{plt.hist(x=[residuals, samples])}. Use 50 bins in the range [-250, 250] and visualise a density plot rather than raw counts.}
+\begin{subquestion}{\label{SQ_LR_RESID_PLT}(4 points) Plot a \href{https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.hist.html}{histogram} of both the residuals and the fitted Gaussian. The easiest way to generate a histogram of the Gaussian, is to generate a large number of samples ($\approx10\times$ the amount of samples in the data) from the distribution (\hint{refer to \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html}{norm.rvs} from \texttt{scipy.stats}}), and feed them to the hist method together with the residuals: \ie calling \texttt{plt.hist(x=[residuals, samples])}. Use 50 bins in the range [-250, 250] and visualise a density plot rather than raw counts.}
 
 
 
@@ -627,7 +627,7 @@ Your Image Here
 
 \end{subquestion}
 
-\begin{subquestion}{(2 points) By referring to the plot in Question \ref{Q_LR_BA}:\ref{SQ_LR_RESID_PLT}, comment on whether your assumption in Q \ref{SQ_LR_RESID} is valid.}
+\begin{subquestion}{(2 points) By referring to the plot in Question \ref{Q_LR_BA}:\ref{SQ_LR_RESID_PLT}, comment on whether your assumption in Question \ref{Q_LR_BA}:\ref{SQ_LR_RESID} is valid.}
 
 
 
@@ -641,7 +641,7 @@ Your Answer Here
 
 
 
-\begin{subquestion}{(5 points) We want to explore further what the model is learning. Explain why in Linear Regression, we cannot just blindly use the weights of the regression coefficients to evaluate the relative importance of each feature, but rather we have to normalise the features. By referring to the documentation for the \href{http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html}{LinearRegression} implementation in SKLearn, explain what the normalisation does and how it helps in comparing features. Will this affect the performance of the LR?}
+\begin{subquestion}{(5 points) We want to explore further what the model is learning. Explain why in Linear Regression, we cannot just blindly use the weights of the regression coefficients to evaluate the relative importance of each feature, but rather we have to normalise the features. By referring to the documentation for the \href{http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html}{LinearRegression} implementation in SKLearn, explain what the normalisation does and how it helps in comparing features. Will this affect the performance of the Linear Regressor?}
 
 
 
@@ -665,7 +665,7 @@ Your Answer Here
 
 \end{subquestion}
 
-\begin{subquestion}{(5 points) It might be that with non-linear models, we may get better performance. Let us try to use \href{https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html}{K-Nearest-Neighbours}. Train a KNN regressor with default parameters on the training set and report performance on the training and validation set. \hint{it might be beneficial to set \texttt{n\_jobs=-1} to improve performance.} How does it compare with the LR in terms of performance on both sets? What is a limitation of the KNN algorithm for our dataset?}
+\begin{subquestion}{(5 points) It might be that with non-linear models, we may get better performance. Let us try to use \href{https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html}{K-Nearest-Neighbours}. Train a KNN regressor with default parameters on the training set and report performance on the training and validation set. \hint{it might be beneficial to set \texttt{n\_jobs=-1} to improve performance.} How does it compare with Linear Regression in terms of performance on both sets? What is a limitation of the KNN algorithm for our dataset?}
 
 
 
@@ -677,7 +677,7 @@ Your Answer Here
 
 \end{subquestion}
 
-\begin{subquestion}{(4 points) The KNN regression allows setting a number of hyper-parameters. We will optimise only one: the number of neighbours to use. By using the validation set, find the optimal value for the \texttt{n\_neighbours} parameter out of the values [2, 4, 8, 16, 32]. Plot the training/validation RMSE and indicate (for example through a line) the best value for \texttt{n\_neighbours}.}
+\begin{subquestion}{(4 points) The KNN regression allows setting a number of hyper-parameters. We will optimise only one: the number of neighbours to use. By using the validation set, find the optimal value for the \texttt{n\_neighbours} parameter out of the values [2, 4, 8, 16, 32]. Plot the training/validation RMSE and indicate (for example with a line) the best value for \texttt{n\_neighbours}.}
 
 
 
@@ -689,7 +689,7 @@ Your Image Here
 
 \end{subquestion}
 
-\begin{subquestion}{(1 points) What is the best-case RMSE performance on the validation set?}
+\begin{subquestion}{(1 points) What is the best-case RMSE performance on the validation set for KNN?}
 
 
 
@@ -725,7 +725,7 @@ Your Answer Here
 
 \end{subquestion}
 
-\begin{subquestion}{(5 points) To conclude let us now compare all the models on the testing set. Combine the training and validation sets (remember to use the version with the one-hot encoding) and retrain the model from each family on it: in cases where we optimised hyper-parameters, set this to the best-case value. Report the testing-set performance of each model in a table \hint{You should have 4 values}.}
+\begin{subquestion}{(5 points) To conclude let us now compare all the models on the testing set. Combine the training and validation sets and retrain the model from each family on it: in cases where we optimised hyper-parameters, set this to the best-case value. Report the testing-set performance of each model in a table \hint{You should have 4 values}.}
 
 
 
