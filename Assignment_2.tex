@@ -53,7 +53,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\assignmentSection{Part A: 20-NewsGroups [75 Points]}
+\assignmentSection{Part A: 20-NewsGroups [76 Points]}
 
 
 
@@ -116,7 +116,7 @@ Your Answer Here
 
 
 
-\answerbox{9em}{
+\answerbox{8em}{
 Your Answer Here
 }
 
@@ -142,7 +142,7 @@ Your Answer Here
 
 
 
-\answerbox{14em}{
+\answerbox{16em}{
 Your Answer Here
 }
 
@@ -271,7 +271,7 @@ Your Image Here
 
 \end{subquestion}
 
-\begin{subquestion}{(7 points) What is the optimal value of $C$ (and the corresponding score). How did you get this value? By making reference to the effect of the regularisation parameter $C$ on the optimisation, explain what is happening in your plot from Question \ref{Q_LR_NG}:\ref{Q_LOG_REG_PLT} \hint{Refer to the documentation for $C$ in the \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html}{LogisticRegression} page on SKLearn}.}
+\begin{subquestion}{(7 points) What is the optimal value of $C$ (and the corresponding score)? How did you choose this value? By making reference to the effect of the regularisation parameter $C$ on the optimisation, explain what is happening in your plot from Question \ref{Q_LR_NG}:\ref{Q_LOG_REG_PLT} \hint{Refer to the documentation for $C$ in the \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html}{LogisticRegression} page on SKLearn}.}
 
 
 
@@ -283,7 +283,7 @@ Your Answer Here
 
 \end{subquestion}
 
-\begin{subquestion}{(2 points) Finally, report the score of the best model on the test-set, after retraining on the entire training set (that is drop the folds). \hint{You may need to set \texttt{max\_iter = 200}.} Comment on the result.}
+\begin{subquestion}{(2 points) Finally, report the score of the best model on the test-set, after retraining on the entire training set (that is drop the folds). \hint{You may need to set \texttt{max\_iter = 200}.} Comment briefly on the result.}
 
 
 
@@ -305,7 +305,7 @@ Your Answer Here
 
 
 
-\begin{question}{(15 points) Hierarchical Classification}
+\begin{question}{(16 points) Hierarchical Classification}
 
 \questiontext{We will now leverage the structure of the target labels to try out hierarchical classification.}
 
@@ -323,7 +323,7 @@ Your Answer Here
 
 \end{subquestion}
 
-\begin{subquestion}{(3 points) First train a Logistic Regressor on the high-level classes (\ie the four super-labels): use the same setup as before (Question \ref{Q_LR_NG}), optimising the regularisation parameter $C$ over the folds. Report the best validation-set F1-score (average over folds) together with the optimal value of $C$. Can we compare this result to the previous ones? \hint{Remember to keep track of the \textbf{best} classifier trained on the \textbf{entire} dataset (\ie training data with no folds).}}
+\begin{subquestion}{(3 points) First train a Logistic Regressor on the high-level classes (\ie the four super-labels): use the same setup as before (Question \ref{Q_LR_NG}), optimising the regularisation parameter $C$ over the folds. Report the best validation-set F1-score (average over folds) together with the optimal value of $C$. \hint{Remember to keep track of the \textbf{best} classifier trained on the \textbf{entire} dataset (\ie training data with no folds).}} Can we compare this result to the previous ones?
 
 
 
@@ -347,7 +347,7 @@ Your Answer Here
 
 \end{subquestion}
 
-\begin{subquestion}{(5 points) Train four independent Logistic Regression (binary) classifiers on the two classes within each super-group. That is, for each super-group, extract only the samples corresponding to that super-group using the true group label, then optimise a Logistic Regression classifier on the data with the targets being the two classes in that super-group. Report in each case the regularisation value which gives the best validation-set score as well as the associated F1-score. \hint{This would look best in a table. Also, remember to keep track of the best classifier trained on the entire group in each case.}}
+\begin{subquestion}{(6 points) Train four independent Logistic Regression (binary) classifiers on the two classes within each super-group. That is, for each super-group, extract only the samples corresponding to that super-group using the true group label, then optimise a Logistic Regression classifier on the data with the targets being the two classes in that super-group. Report in each case the regularisation value which gives the best validation-set score as well as the associated F1-score. \hint{This would look best in a table. Also, remember to keep track of the best classifier trained on the entire group in each case.}}
 
 
 
@@ -363,7 +363,7 @@ Your Table Here
 
 
 
-\answerbox{12em}{
+\answerbox{6em}{
 Your Answer Here
 }
 
@@ -405,7 +405,8 @@ Your Answer Here
 
 \end{subquestion}
 
-\begin{subquestion}{(6 points) Repeat the same analysis but this time on a per-site basis. Provide a table with the number of samples and percentage of problematic samples (negative and missing) in each site. To report numbers, a row which has at least one column `wrong' counts as 1. \hint{Pandas has a handy method, \texttt{to\_latex()}, for generating a latex table from a dataframe.}}
+\begin{subquestion}{(6 points) Repeat the same analysis but this time on a per-site basis. Provide a table with the number of samples and percentage of problematic samples (negative and missing) in each site. To report numbers, count a row which has at least one missing entry
+as having missing data, and similarly for negative entries. \hint{Pandas has a handy method, \texttt{to\_latex()}, for generating a latex table from a dataframe.}}
 
 
 
@@ -433,7 +434,7 @@ Your Answer Here
 
 
 
-\answerbox{8em}{
+\answerbox{10em}{
 Your Table Here
 }
 
@@ -445,7 +446,7 @@ Your Table Here
 
 
 
-\answerbox{6em}{
+\answerbox{7em}{
 Your Answer Here
 }
 
@@ -471,7 +472,7 @@ Your Image Here
 
 
 
-\answerbox{10em}{
+\answerbox{12em}{
 Your Answer Here
 }
 
@@ -490,7 +491,7 @@ Your Answer Here
 
 
 
-\begin{subquestion}{(2 points) Plot the first 5 lines of data (plot each row as a single line-plot).}
+\begin{subquestion}{(1 point) Plot the first 5 lines of data (plot each row as a single line-plot).}
 
 
 
@@ -504,7 +505,7 @@ Your Image Here
 
 
 
-\begin{subquestion}{(5 points) We will focus first on data solely from Site 1. Extract the data from this site, and run PCA with the number of components set to 72 for now. Set the \texttt{random\_state=0}. On a single plot plot: (i) the percentage of the variance explained by each principal component (as a bar-chart), (ii) the cumulative variance (line-plot) explained by the first $n$ components: (\hint{you should use \href{https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.axes.Axes.twinx.html}{\texttt{twinx()}} to make the plot fit}), \textsl{and}, (iii) mark the point (number of components) which collectively explain at least 95\% of the variance. \hint{Number components starting from 1.}}
+\begin{subquestion}{(5 points) We will focus first on data solely from Site 1. Extract the data from this site, and run PCA with the number of components set to 72 for now. Set the \texttt{random\_state=0}. On a single graph plot: (i) the percentage of the variance explained by each principal component (as a bar-chart), (ii) the cumulative variance (line-plot) explained by the first $n$ components: (\hint{you should use \href{https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.axes.Axes.twinx.html}{\texttt{twinx()}} to make the plot fit}), \textsl{and}, (iii) mark the point at which the number of components collectively explain at least 95\% of the variance (using a vertical line). \hint{Number components starting from 1.}}
 
 
 
@@ -520,7 +521,7 @@ Your Image Here
 
 
 
-\answerbox{8em}{
+\answerbox{9em}{
 Your Answer Here
 }
 
@@ -533,7 +534,7 @@ Your Answer Here
 
 
 
-\answerbox{40em}{
+\answerbox{50em}{
 Your Image Here
 }
 
@@ -541,11 +542,11 @@ Your Image Here
 
 \end{subquestion}
 
-\begin{subquestion}{(5 points) By focusing mostly on the first principal component, are there any significant patterns which emerge throughout the day? \hint{Think about car usage throughout the day.} Also, are there any significant differences between the pollutants and why could this be happening? \hint{You can refer to one of the limitations of PCA.}}
+\begin{subquestion}{(6 points) Focusing on the mean and first principal component, are there any significant patterns which emerge throughout the day? \hint{Think about car usage throughout the day.} What is different when interpreting the mean versus the first component? \hint{Do peaks signify the same thing in both cases?} Are there any significant differences between the pollutants and why could this be happening? \hint{You can refer to one of the limitations of PCA.}}
 
 
 
-\answerbox{12em}{
+\answerbox{16em}{
 Your Answer Here
 }
 
@@ -565,7 +566,7 @@ Your Answer Here
 
 
 
-\begin{subquestion}{(2 points) First things first: since we are dealing with a supervised task, we will need to split our data into a training and testing set. Furthermore, since our regressors will involve hyper-parameter tuning, we will also need a validation set. Use the \texttt{multi\_way\_split()} method from \texttt{mpctools.extensions.skext} to split the data into a Training (60\%), Validation (15\%) and Testing (25\%) set: use the \href{https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.ShuffleSplit.html}{ShuffleSplit} object from sklearn for the \texttt{splitter}. Set the random state to 0. \hint{The method gives you the indices of the split for each set, which can then be applied to multiple matrices.} Report the sizes of each dataset.}
+\begin{subquestion}{(2 points) First things first: since we are dealing with a supervised task, we will need to split our data into a training and testing set. Furthermore, since some of our regressors will involve hyper-parameter tuning, we will also need a validation set. Use the \texttt{multi\_way\_split()} method from \texttt{mpctools.extensions.skext} to split the data into a Training (60\%), Validation (15\%) and Testing (25\%) set: use the \href{https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.ShuffleSplit.html}{ShuffleSplit} object from sklearn for the \texttt{splitter}. Set the random state to 0. \hint{The method gives you the indices of the split for each set, which can then be applied to multiple matrices.} Report the sizes of each dataset.}
 
 
 
@@ -593,7 +594,7 @@ Your Answer Here
 
 
 
-\answerbox{6em}{
+\answerbox{7em}{
 Your Answer Here
 }
 
@@ -607,7 +608,7 @@ Your Answer Here
 
 
 
-\answerbox{4em}{
+\answerbox{3em}{
 Your Answer Here
 }
 
@@ -645,7 +646,7 @@ Your Answer Here
 
 
 
-\answerbox{8em}{
+\answerbox{10em}{
 Your Answer Here
 }
 
@@ -657,7 +658,7 @@ Your Answer Here
 
 
 
-\answerbox{14em}{
+\answerbox{15em}{
 Your Answer Here
 }
 
@@ -669,7 +670,7 @@ Your Answer Here
 
 
 
-\answerbox{7em}{
+\answerbox{8em}{
 Your Answer Here
 }
 
@@ -693,7 +694,7 @@ Your Image Here
 
 
 
-\answerbox{4em}{
+\answerbox{6em}{
 Your Answer Here
 }
 
