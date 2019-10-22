@@ -8,7 +8,7 @@ This is the repository for the Second (graded) Assignment for IAML 2019.
  * `conda.req`: This is the list of packages you need to complete the assignment
  * `style.tex`: This is the style file for the Assignment Template. **DO NOT MODIFY** this file in any way.
  * `Assignment_2.tex`: This is the template you should modify to writeup your assignment.
- * `Instructions.pdf`: This is the pdf with the question-sheet for the Assignment.
+ * `L11_Instructions.pdf`: This is the pdf with the question-sheet for the Assignment.
  * `Data`: This is a directory (folder) which contains all the data you need to complete the assignment.
 
 ## Setting up your environment
