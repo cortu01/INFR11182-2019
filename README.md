@@ -36,5 +36,5 @@ We have provided this set of tools to aid in the coding up of the solutions. Mak
  2. From within the downloaded directory execute:
     ```
     python setup.py sdist --format=tar
-    pip install dist/mpctools-0.3.10.tar --user
+    pip install dist/mpctools-0.3.20.tar --user
     ```
